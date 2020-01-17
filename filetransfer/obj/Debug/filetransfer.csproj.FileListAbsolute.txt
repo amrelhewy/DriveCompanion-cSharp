@@ -1,0 +1,9 @@
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\bin\Debug\filetransfer.exe.config
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\bin\Debug\filetransfer.exe
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\bin\Debug\filetransfer.pdb
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.csprojResolveAssemblyReference.cache
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.Form1.resources
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.Properties.Resources.resources
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.csproj.GenerateResource.Cache
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.exe
+c:\users\user\documents\visual studio 2017\Projects\filetransfer\filetransfer\obj\Debug\filetransfer.pdb
