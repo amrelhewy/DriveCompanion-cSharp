@@ -18,18 +18,38 @@ namespace filetransfer
         List<string> listbox = new List<string>();
         DriveInfo []di =DriveInfo.GetDrives() ;
         ContextMenuStrip st;
-
+     
+        
+       
+      
+        
         public Form1()
-        {
+        {    
             InitializeComponent();
             foreach (DriveInfo d in di)
             {
                 listBox1.Items.Add(d);
 
             }
-           st = new ContextMenuStrip();
-        }
+            var currentTime = new System.Threading.Timer((e) =>
+            {
+                currentTimer();
+            },null,TimeSpan.Zero,TimeSpan.FromSeconds(1));
 
+
+
+
+
+        }
+        
+        
+        
+        protected void currentTimer()
+        {
+            var time = DateTime.Now;
+            infobox.Text = "Current Time: " + time.ToString();
+        }
+        
         protected override void OnPaint(PaintEventArgs e)
         {
             
@@ -206,46 +226,15 @@ namespace filetransfer
 
         }
 
-        private void search_KeyPress(object sender, KeyPressEventArgs e)
-        {   
-            if(search.Text.Length>0)
-            {
-
-                List<string> searchedList = new List<string>();
+        //private void search_KeyPress(object sender, KeyPressEventArgs e)
+        //{   
+           
             
-                foreach (string s in listBox1.Items)
-                {
-                string srch = s.ToLower();
-                    if (srch.Contains(search.Text))
-                    {
-
-                        searchedList.Add(s);
-
-                    }
-                }
-                listBox1.Items.Clear();
-                for (int i = 0; i < searchedList.Count; i++)
-                {
-                    listBox1.Items.Add(searchedList[i]);
-                }
-
-            }
-            else
-            {
-                listBox1.Items.Clear();
-                foreach(string s in listbox)
-                {
-                    listBox1.Items.Add(s);
-                }
-            }
-            
-         
-            
-            
-        }
+        //}
 
         private void search_Enter(object sender, EventArgs e)
         {
+            listbox.Clear();
             foreach(string s in listBox1.Items)
             {
                 listbox.Add(s);
@@ -263,11 +252,105 @@ namespace filetransfer
 
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Length > 0)
+            {
+
+                List<string> searchedList = new List<string>();
+
+                foreach (string s in listBox2.Items)
+                {
+                    string srch = s.ToLower();
+                    if (srch.Contains(textBox2.Text))
+                    {
+
+                        searchedList.Add(s);
+
+                    }
+                }
+                listBox2.Items.Clear();
+                for (int i = 0; i < searchedList.Count; i++)
+                {
+                    listBox2.Items.Add(searchedList[i]);
+                }
+
+
+            }
+            else
+            {
+                listBox2.Items.Clear();
+                foreach (string s in listbox)
+                {
+                    listBox2.Items.Add(s);
+                }
+            }
+
+        }
+
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            listbox.Clear();
+            foreach (string s in listBox2.Items)
+            {
+                listbox.Add(s);
+            }
+
+        }
+
+        private void search_TextChanged(object sender, EventArgs e)
+        {
+            if (search.Text.Length > 0)
+            {
+
+                List<string> searchedList = new List<string>();
+
+                foreach (string s in listBox1.Items)
+                {
+                    string srch = s.ToLower();
+                    if (srch.Contains(search.Text))
+                    {
+
+                        searchedList.Add(s);
+
+                    }
+                }
+                listBox1.Items.Clear();
+                for (int i = 0; i < searchedList.Count; i++)
+                {
+                    listBox1.Items.Add(searchedList[i]);
+                }
+
+            }
+            else
+            {
+                listBox1.Items.Clear();
+                foreach (string s in listbox)
+                {
+                    listBox1.Items.Add(s);
+                }
+            }
+
+
+
+        }
+
+        private void root2_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Clear();
+            textBox2.Clear();
+
+            foreach (DriveInfo d in di)
+            {
+                listBox2.Items.Add(d);
+
+            }
+        }
         //private void sizeToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    string fileName = Path.GetFullPath(listBox1.SelectedItem.ToString());
         //     f = new FileInfo(Path.GetFileName(listBox1.SelectedItem.ToString()));
-            
+
         //    MessageBox.Show(f.Name);
         //}
     }
